@@ -1,0 +1,76 @@
+.topnav
+{
+    background-color: #333;
+    overflow: hidden;
+}
+
+.topnav a
+{
+    float :  right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding:14px
+
+}
+.header
+{
+    grid-area: header;
+    background-color: #f1f1f1;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+}
+
+.header a
+{
+    float:right;
+    display: block;
+    text-align: center;
+    padding: 16px 14px;
+}
+
+.navigation
+{
+    overflow: hidden;
+    background-color: #333;
+}
+.navigation a
+{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navigation input[type = text]
+{
+    border: none;
+    float: left;
+    padding : 10px;
+    margin-top: 5px;
+    margin-left: 16px;
+}
+
+div.movietags
+{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+#movieimg
+{
+    width: 400px;
+    height: 400px;
+}
+
+#movieimg > img 
+{
+    border: 1px solid black;
+    width: 150px;
+    height: 200px;
+    margin: 1.66%;
+}
