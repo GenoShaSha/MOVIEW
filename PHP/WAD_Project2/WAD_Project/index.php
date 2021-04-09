@@ -22,7 +22,7 @@ require_once __DIR__.'/libs/dbController.php';
             echo '<pre>';
             //var_dump($data);
             // echo '</pre>';
-            echo 'id='.$data[0]['iD'] . ' email=' . $data[0]['email'];
+            echo 'id='.$data[0]['iD'] . ' email=' . $data[0]['email']. ".<br>";
             echo 'id='.$data[1]['iD'] . ' email=' . $data[1]['email'];
 
             echo '</pre>';
