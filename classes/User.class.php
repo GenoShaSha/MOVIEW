@@ -26,6 +26,59 @@ class User extends dbconnect
         }
     }
 
+    public function UploadProfileImage()
+    {
+        if(isset($_POST['uploadimgBtn']))
+        {
+            $filename = $_FILES["uploadfile"]["name"];
+            $temp = $_FILES["uploadfile"]["tmp_name"];
+            $folder = "images/Profiles/".$filename;
+           
+
+            if(isset($_SESSION['sess_user_id']))
+            {
+                $id = $_SESSION['sess_user_id'];
+            }
+
+            if($this->connect()->query("SELECT * FROM `profileinfo` WHERE `id` = $id") == TRUE)
+            {
+                try
+                {
+                    $query = "UPDATE `userinfo` SET `username`= ? ,`userpassword`= ?,`fullname`= ? ,`email`= ? WHERE `id` = $id";
+                    $query = "UPDATE `profileinfo`SET `profileimage` = ? where `id` = $_SESSION[sess_user_id]";
+                    $stmt = $this -> connect() -> prepare($query);
+                    $stmt -> execute([$filename]);     
+                }
+                catch (PDOException $e)
+                {
+                    echo $e ->GetMessage();
+                }
+                
+            }
+            else
+            {
+                try
+                {
+                    $query = "INSERT INTO `profileinfo`(`id`, `profileimage`) VALUES (?, ?)";
+                    $stmt = $this -> connect() -> prepare($sql);
+                    $stmt -> execute([$id,$filename]);
+                   
+                }
+                catch (PDOException $e)
+                {
+                    echo $e ->GetMessage();
+                }
+            }
+            move_uploaded_file($temp, $folder);
+            $_SESSION['sess_profile_pic'] = [$folder];
+             
+        }
+    }
+    public function RetrieveImage()
+    {
+
+    }
+
     public function UpdateInformation()
     {
         if(isset($_POST['updateBtn']))

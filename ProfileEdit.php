@@ -4,6 +4,7 @@ include 'classes/dbconnect.class.php';
 include 'classes/User.class.php';
 $user = new User();
 $user -> UpdateInformation();
+$user -> UploadProfileImage();
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +39,22 @@ $user -> UpdateInformation();
             <form method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="size" value="1000000">
                 <div>
-                <input type="file" name="Upload image">
+                <input type="file" name="uploadfile">
                 </div>
                     <div class="profilePic">
-                        <img src="images\profPic.png" alt="Profile Picture"width="100" height="100" style = "position: relative; bottom: 15px">
+                        <?php if (isset($_SESSION['sess_profile_pic'])) 
+                        { ?>
+                        <?php $path = $_SESSION['sess_profile_pic'][0];?>
+                       <img src= "<?php echo $path; ?>" alt="Profile Picture"width="100" height="100" style = "position: relative; bottom: 15px">
+                        <?php } ?>
+                        
+                        <?php if (!isset($_SESSION['sess_profile_pic'])) 
+                        { ?>
+                        <img src="images\profPic.png" alt="Profile Picture"width="100" height="100" style = "position: relative; bottom: 15px">   
+                        <?php } ?>
+                   
                     </div>
+                <input type = "submit" value = "Upload Image" name = "uploadimgBtn" id = "uploadimgBtn">
             </form>
             <textarea rows="4" cols="50" name="UserInfo" form="profileform">
                         Enter text here...

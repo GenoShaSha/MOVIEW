@@ -34,9 +34,19 @@ $user = new User();
         </div>
         <div class="centerProfile" style = "position: absolute; top: 600px">
             <h1><?php echo  $_SESSION['sess_user_name'] ?></h1>
-                <div class="profilePic">
-                    <img src="images\profPic.png" alt="Profile Picture"width="100" height="100" style = "position: relative; bottom: 15px">
-                </div>
+            <div class="profilePic">
+                        <?php if (isset($_SESSION['sess_profile_pic'])) 
+                        { ?>
+                        <?php $path = $_SESSION['sess_profile_pic'][0];?>
+                       <img src= "<?php echo $path; ?>" alt="Profile Picture"width="100" height="100" style = "position: relative; bottom: 15px">
+                        <?php } ?>
+                        
+                        <?php if (!isset($_SESSION['sess_profile_pic'])) 
+                        { ?>
+                        <img src="images\profPic.png" alt="Profile Picture"width="100" height="100" style = "position: relative; bottom: 15px">   
+                        <?php } ?>
+                   
+                    </div>
             <textarea rows="4" cols="50" name="UserInfo" form="profileform">
                         Enter text here...
             </textarea>
