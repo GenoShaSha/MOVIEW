@@ -8,7 +8,6 @@ if( $_SESSION['sess_role'] == "admin")
     echo "<h1>User list</h1>";
     $admin ->ShowUsers();
 }
-
 ?>
 <!DOCTYPE html>
 <a href = "logout.php">Log Out</a>
