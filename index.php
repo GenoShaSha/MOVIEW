@@ -56,6 +56,10 @@ include 'classes/User.class.php';
               <a href="#">TAGS</a>
               <a href="#">RECENT</a>
               <input type="text" placeholder="Search...">
+              <?php if (isset($_SESSION['sess_role']) && $_SESSION['sess_role'] == "admin")
+              {?>
+                <a href="adminpage.php">ADMIN PAGE</a> 
+             <?php } ?>
               
     </div>
                 

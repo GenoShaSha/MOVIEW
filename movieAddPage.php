@@ -1,8 +1,21 @@
 <?php
-include 'classes/dbconnect.class.php';
-include 'classes\User.class.php';
-$dbHelp = new User();
-$dbHelp -> InsertUserInformation();
+session_start();
+if ($_SESSION['sess_role'] == "admin")
+{
+    include 'classes/dbconnect.class.php';
+    include 'classes\Admin.class.php';
+    $admin = new Admin();
+    $admin -> InsertMovieInformation();
+}
+else if (isset($_SESSION['sess_role']))
+{
+    header('location: index.php?loggedin'); 
+}
+else
+{
+    header('location: index.php');
+}
+
 ?>
 
 <!DOCTYPE html> 
@@ -30,29 +43,30 @@ $dbHelp -> InsertUserInformation();
             <a href="#">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
+            <a href = "adminpage.php"> ADMIN PAGE </a>
         </div>
         <div class="center">
-            <h1>Sign Up</h1>
+            <h1>Add Movie</h1>
             <form method="post">
                 <div class = "txt_field">
-                    <input type = "text" name = "full_name" id = "full_name" required>
-                    <label>Full Name</label>
+                    <input type = "text" name = "title" id = "title" required>
+                    <label>Movie Title</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" name = "user_name" id = "user_name" required>
-                    <label>Username</label>
+                    <input type="text" name = "director_name" id = "director_name" required>
+                    <label>Director Name</label>
                 </div>
                 <div class="txt_field">
-                    <input type="email" name = "email" id = "email" required>
-                    <label>Email</label>
+                    <input type="text" name = "genre" id = "genre" required>
+                    <label>Genre(s)</label>
                 </div>
-                <div class="txt_field">
-                    <input type="password" name = "password" id = "password" required>
-                    <label>Password</label>
-                </div>  
                 <div class = "txt_field">
-                    <input type = "date" name = "dateofbirth" id = "dateofbirth">
-                    <label>Date of Birth</label>
+                    <input type = "date" name = "releaseDate" id = "releaseDate">
+                    <label>Release Date</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" name = "actors" id = "actors" required>
+                    <label>Actor(s)</label>
                 </div>
                 <button type="submit" name = "submitBtn" id = "submitBtn" value = "signup">Sign Up</button>
             </form>

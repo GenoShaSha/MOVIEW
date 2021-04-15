@@ -3,8 +3,11 @@ session_start();
 include 'classes/dbconnect.class.php';
 include 'classes/User.class.php';
 $user = new User();
-$user -> UpdateInformation();
-$user -> UploadProfileImage();
+$user -> UpdateUserInformation();
+if(isset($_FILES["uploadfile"]))
+{
+    $user -> UploadProfileImage();
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,9 +35,8 @@ $user -> UploadProfileImage();
             <a href="#">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
-            <a href="ProfileView.php">PROFILE</a>
         </div>
-        <div class="centerProfile" style = "position: absolute; top: 600px">
+        <div class="centerProfile" style = " position: absolute; top: 700px;left: 550px">
             <h1>Profile</h1>
             <form method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="size" value="1000000">
@@ -61,19 +63,19 @@ $user -> UploadProfileImage();
             </textarea>
             <form method = "POST">
                 <div class="txt_field">
-                    <input type="Full Name" name = "full_name" id = "full_name" required>
+                    <input type="Full Name" name = "full_name" id = "full_name" value = "" >
                     <label>Full Name</label>
                 </div>
                 <div class="txt_field">
-                    <input type="Email" name = "email" id = "email" required>
+                    <input type="Email" name = "email" id = "email" value = "" >
                     <label>Email</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" name = "user_name" id = "user_name" required>
+                    <input type="text" name = "user_name" id = "user_name" value = "" >
                     <label>Username</label>
                 </div>
                 <div class="txt_field">
-                    <input type="password" name = "password" id = "password" required>
+                    <input type="password" name = "password" id = "password" value = "" >
                     <label>Password</label>
                 </div>
                 <input type="submit" name = "updateBtn" id = "updateBtn" value = "Submit">

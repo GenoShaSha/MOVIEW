@@ -30,9 +30,8 @@ $user = new User();
             <a href="#">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
-            <a href="ProfileView.php">PROFILE</a>
         </div>
-        <div class="centerProfile" style = "position: absolute; top: 600px">
+        <div class="centerProfile" style = "position: absolute; top: 600px; left: 550px;">
             <h1><?php echo  $_SESSION['sess_user_name'] ?></h1>
             <div class="profilePic">
                         <?php if (isset($_SESSION['sess_profile_pic'])) 

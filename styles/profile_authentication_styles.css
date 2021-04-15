@@ -10,13 +10,13 @@ body{
 
 
 .center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
+    position : relative;
+    display : grid;
+    column-gap: 30px;
+    width: 750px;
     background: white;
     border-radius: 10px;
+    float : left;
 }
 .centerProfile{
     position: relative;
@@ -242,8 +242,9 @@ input [type="submit"]:hover{
     margin-left: 16px;
 }
 
-.profilePic{
+.profilePic
+{
     position: absolute;
-    left: 0px;
-    top: 1px;
+    left: 135px;
+    top: -85px;
 }
