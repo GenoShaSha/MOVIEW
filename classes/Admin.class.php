@@ -90,6 +90,4 @@ class Admin extends dbconnect
         }
     }
 }
-
-
 ?>
