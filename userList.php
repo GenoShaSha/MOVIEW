@@ -41,16 +41,16 @@ else
             <a href="#">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
-            <a href = "#">MOVIE LIST</a>
-            <a href = "userList.php">USER LIST</a>           
+            <a href = "movieList.php">MOVIE LIST</a>
+            <a href = "#">USER LIST</a>           
         </div>
         <div class = "center"> 
         <a href="movieAddpage.php">ADD MOVIE</a>
         <?php
         if( $_SESSION['sess_role'] == "admin")
         {
-            echo "<h1>Movie list</h1>";
-            $admin ->ShowMovies()
+            echo "<h1>User list</h1>";
+            $admin ->ShowUsers();
         }
        ?>
        </div>

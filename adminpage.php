@@ -42,25 +42,8 @@ else
             <a href="#">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
-            <a href = "movieAddPage.php"> ADD MOVIES </a>
-        </div>
-        <div class = "center"> 
-        <?php
-        if( $_SESSION['sess_role'] == "admin")
-         {
-             echo "<h1>User list</h1>";
-             $admin ->ShowUsers();
-        }
-        ?>
-        </div>
-        <div class = "center"> 
-        <?php
-        if( $_SESSION['sess_role'] == "admin")
-         {
-             echo "<h1>Movie list</h1>";
-             $admin ->ShowMovies();
-        }
-        ?>
+            <a href = "#">MOVIE LIST</a>
+            <a href = "userList.php">USER LIST</a>           
         </div>
     </body>
 </html>     
