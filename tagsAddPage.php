@@ -3,8 +3,9 @@ session_start();
 if ($_SESSION['sess_role'] == "admin")
 {
     include 'classes/dbconnect.class.php';
-    include 'classes/Admin.class.php';
+    include 'classes\Admin.class.php';
     $admin = new Admin();
+    $admin -> InsertMovieInformation();
 }
 else if (isset($_SESSION['sess_role']))
 {
@@ -14,17 +15,18 @@ else
 {
     header('location: index.php');
 }
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en" > 
+<!DOCTYPE html> 
+<html lang="en" dir="ltr"> 
     <head>
         <meta charset="utf-8">
-        <title>Profile</title>
+        <title>SignUp Form</title>
         <link rel="stylesheet" href="styles\profile_authentication_styles.css">
     </head> 
     <body>
-        <div class="topnav">
+    <div class="topnav">
         <a href="RetrieveInfo.php">
             Profile
         </a>
@@ -43,17 +45,19 @@ else
             <input type="text" placeholder="Search...">
             <a href = "adminpage.php"> ADMIN PAGE </a>
             <a href = "movieList.php">MOVIE LIST</a>
-            <a href = "#">USER LIST</a>           
+            <a href = "userList.php">USER LIST</a>           
+            <a href = "#">ADD TAGS</a>           
+
         </div>
-        <div class = "center"> 
-        <a href="movieAddpage.php">ADD MOVIE</a>
-        <?php
-        if( $_SESSION['sess_role'] == "admin")
-        {
-            echo "<h1>User list</h1>";
-            $admin ->ShowUsers();
-        }
-       ?>
-       </div>
-   </body>
-</html>   
+        <div class="center">
+            <h1>Add Tags</h1>
+            <form method="post">
+                <div class = "txt_field">
+                    <input type = "text" name = "tag_name" id = "tag_name" required>
+                    <label>Tag Name</label>
+                </div>
+                <button type="submit" name = "submitTagsBtn" id = "submitTagsBtn" value = "Add">Add</button>
+            </form>
+        </div>
+    </body>
+</html>

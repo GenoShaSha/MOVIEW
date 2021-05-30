@@ -32,7 +32,7 @@ if(isset($_FILES["uploadfile"]))
         <div class="navigation">
             <a href="index.php?loggedin">HOME</a>
             <a href="#">GENRE</a>
-            <a href="#">TAGS</a>
+            <a href="tagList.php">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
         </div>
