@@ -115,6 +115,41 @@ class Admin extends dbconnect
             move_uploaded_file($temp, $folder);
             $_SESSION['sess_profile_pic'] = [$folder];         
     }
-
+    public function InsertTags()
+    {
+        if(isset($_POST['submitTagsBtn']))
+        {
+            try
+            {
+                $tagName = trim($_POST['tag_name']);
+                $sql = "INSERT INTO `taginfo`(`tagID`, `tagName`) VALUES (NULL,?)";
+                $stmt = $this -> connect() -> prepare($sql);
+                $stmt -> execute([$tagName]);
+                header('location:tagsAddPage.php');
+            }
+            catch (PDOException $e)
+            {
+                echo $e ->GetMessage();
+            }
+        }
+    }
+    public function RemoveTags()
+    {
+        if(isset($_POST['submitRmvTagsBtn']))
+        {
+            try
+            {
+                $tagID = trim($_POST['tag_id']);
+                $sql = "DELETE FROM `taginfo`WHERE `tagID` = :tagID";
+                $stmt = $this -> connect() -> prepare($sql);
+                $stmt -> execute([$tagID]);
+                header('location:tagsAddPage.php');
+            }
+            catch (PDOException $e)
+            {
+                echo $e ->GetMessage();
+            }
+        }
+    }
 }
 ?>

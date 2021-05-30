@@ -47,7 +47,6 @@ else
             <a href = "movieList.php">MOVIE LIST</a>
             <a href = "userList.php">USER LIST</a>           
             <a href = "#">ADD TAGS</a>           
-
         </div>
         <div class="center">
             <h1>Add Tags</h1>
@@ -57,6 +56,16 @@ else
                     <label>Tag Name</label>
                 </div>
                 <button type="submit" name = "submitTagsBtn" id = "submitTagsBtn" value = "Add">Add</button>
+            </form>
+        </div>
+        <div class="center">
+            <h1>Remove Tags</h1>
+            <form method="post">
+                <div class = "txt_field">
+                    <input type = "text" name = "tag_id" id = "tag_id" required>
+                    <label>Tag ID</label>
+                </div>
+                <button type="submit" name = "submitRmvTagsBtn" id = "submitRmvTagsBtn" value = "Remove">Remove</button>
             </form>
         </div>
     </body>

@@ -165,23 +165,5 @@ class User extends dbconnect
               }
         }
     }
-    public function InsertTags()
-    {
-        if(isset($_POST['submitTagsBtn']))
-        {
-            try
-            {
-                $tagName = trim($_POST['tag_name']);
-                $sql = "INSERT INTO `taginfo`(`tagID`, `tagName`) VALUES (NULL,?)";
-                $stmt = $this -> connect() -> prepare($sql);
-                $stmt -> execute([$tagName]);
-                header('location:tagsAddPage.php');
-            }
-            catch (PDOException $e)
-            {
-                echo $e ->GetMessage();
-            }
-        }
-    }
 }
 ?>
