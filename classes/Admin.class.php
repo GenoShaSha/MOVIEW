@@ -89,5 +89,32 @@ class Admin extends dbconnect
             }
         }
     }
+    public function UploadMovieImage()
+    {
+        if(isset($_POST['uploadMovieImgBtn']))
+        {
+            $filename = $_FILES["uploadfile"]["name"];
+            $temp = $_FILES["uploadfile"]["tmp_name"];
+            $folder = "images/MoviePics/".$filename;
+            if(isset($_SESSION['sess_user_id']))
+            {
+               echo $filename; 
+                    $id = $_SESSION['sess_user_id'];
+                try
+                {
+                    $query = "INSERT INTO `movieinfo`(`movieID`, `moviePic`) VALUES ($id , $filename)  ON DUPLICATE KEY UPDATE 'movieImage' = $filename";             
+                    $stmt = $this -> connect() -> prepare($query);
+                    $stmt -> execute(); 
+                }
+                catch (PDOException $e)
+                {
+                    echo $e ->GetMessage();
+                }
+            }
+        }
+            move_uploaded_file($temp, $folder);
+            $_SESSION['sess_profile_pic'] = [$folder];         
+    }
+
 }
 ?>

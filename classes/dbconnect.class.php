@@ -18,11 +18,7 @@ class dbconnect {
         {
             echo $e->GetMessage();
         }
-       
-
         return $pdo;
     }
- 
-}
-
+ }
 ?>
