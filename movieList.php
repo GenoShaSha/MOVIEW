@@ -44,6 +44,7 @@ else
             <a href = "movieAddPage.php"> ADD MOVIES </a>
         </div>
         <div class = "center"> 
+        <a href="movieAddpage.php">ADD MOVIE</a>
         <?php
         if( $_SESSION['sess_role'] == "admin")
         {
