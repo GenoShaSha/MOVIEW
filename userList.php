@@ -43,10 +43,10 @@ else
             <input type="text" placeholder="Search...">
             <a href = "adminpage.php"> ADMIN PAGE </a>
             <a href = "movieList.php">MOVIE LIST</a>
-            <a href = "#">USER LIST</a>           
+            <a href = "#">USER LIST</a>
+            <a href = "tagList.php">TAG LIST</a>            
         </div>
         <div class = "center"> 
-        <a href="movieAddpage.php">ADD MOVIE</a>
         <?php
         if( $_SESSION['sess_role'] == "admin")
         {

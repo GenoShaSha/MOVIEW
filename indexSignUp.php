@@ -11,6 +11,7 @@ $dbHelp -> InsertUserInformation();
         <meta charset="utf-8">
         <title>SignUp Form</title>
         <link rel="stylesheet" href="styles\profile_authentication_styles.css">
+        <script src = "/js/validation.js"> </script>
     </head> 
     <body>
     <div class="topnav">
@@ -33,9 +34,11 @@ $dbHelp -> InsertUserInformation();
         </div>
         <div class="center">
             <h1>Sign Up</h1>
-            <form method="post">
+            
+            <form name = "SignUpForm" method="post" onsubmit = return validateSignUp() >
                 <div class = "txt_field">
                     <input type = "text" name = "full_name" id = "full_name" required>
+                    <span id = "errorfull"></span>
                     <label>Full Name</label>
                 </div>
                 <div class="txt_field">
@@ -47,12 +50,23 @@ $dbHelp -> InsertUserInformation();
                     <label>Email</label>
                 </div>
                 <div class="txt_field">
-                    <input type="password" name = "password" id = "password" required>
+                    <input type="password" id="password">
                     <label>Password</label>
+                    <input type="checkbox" onclick="ShowPassword()">
+                    <script>
+                    function ShowPassword() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                    }
+                    </script>
+                    
                 </div>  
                 <div class = "txt_field">
                     <input type = "date" name = "dateofbirth" id = "dateofbirth">
-                    <label>Date of Birth</label>
                 </div>
                 <button type="submit" name = "submitBtn" id = "submitBtn" value = "signup">Sign Up</button>
             </form>

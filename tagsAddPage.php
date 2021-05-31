@@ -5,7 +5,7 @@ if ($_SESSION['sess_role'] == "admin")
     include 'classes/dbconnect.class.php';
     include 'classes\Admin.class.php';
     $admin = new Admin();
-    $admin -> InsertMovieInformation();
+    $admin -> InsertTags();
 }
 else if (isset($_SESSION['sess_role']))
 {
@@ -46,7 +46,7 @@ else
             <a href = "adminpage.php"> ADMIN PAGE </a>
             <a href = "movieList.php">MOVIE LIST</a>
             <a href = "userList.php">USER LIST</a>           
-            <a href = "#">ADD TAGS</a>           
+            <a href = "tagList.php">TAG LIST</a>            
         </div>
         <div class="center">
             <h1>Add Tags</h1>

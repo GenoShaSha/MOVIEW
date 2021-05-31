@@ -30,7 +30,18 @@ $user -> SubmitCredentials();
                 </div>
                 <div class="txt_field">
                     <input type="password" name = "password" id = "password" required>
+                    <input type= "checkbox" onclick = ShowPassword()>
                     <label>Password</label>
+                    <script>
+                    function ShowPassword() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                    }
+                    </script>
                 </div>
                 <div class="pass">Forgot Password?</div>
                 <input type="submit" name = "submitBtn" id = "submitBtn" value="Login">

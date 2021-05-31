@@ -67,6 +67,31 @@ class Admin extends dbconnect
             echo "Error : ".$e->getMessage();
         }
     }
+
+    public function ShowTags()
+    {
+        try
+        {$query = "SELECT * FROM `taginfo`";
+            $stmt = $this -> connect() -> query($query);
+            echo "<table border = '1'>
+                 <tr>
+                 <th>Id</th>
+                 <th>Tag</th>
+                 </tr>";
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+            {
+                echo "<tr>";
+                echo "<td>" . $row['tagID'] . "</td>";
+                echo "<td>".$row['tagName']."</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        }
+        catch (PDOException $e)
+        {
+            echo "Error : ".$e->getMessage();
+        }
+    }
     public function InsertMovieInformation()
     {
         if(isset($_POST['submitBtn']))
