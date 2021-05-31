@@ -6,6 +6,7 @@ if ($_SESSION['sess_role'] == "admin")
     include 'classes\Admin.class.php';
     $admin = new Admin();
     $admin -> InsertMovieInformation();
+    $admin -> RemoveMovies();
 }
 else if (isset($_SESSION['sess_role']))
 {
@@ -43,32 +44,11 @@ else
             <a href="tagList.php">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
-            <a href = "adminpage.php"> ADMIN PAGE </a>
             <a href = "movieList.php">MOVIE LIST</a>
-            <a href = "userList.php">USER LIST</a>           
+            <a href = "userList.php">USER LIST</a>
+            <a href = "tagList.php">TAG LIST</a>           
         </div>
         <div class="center">
-            <h1>Add Movie</h1>
-            <form method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="size" value="1000000">
-                <div>
-                <input type="file" name="uploadfile">
-                </div>
-                    <div class="moviePic">
-                        <?php if (isset($_SESSION['sess_movie_pic'])) 
-                        { ?>
-                        <?php $path = $_SESSION['sess_movie_pic'][0];?>
-                       <img src= "<?php echo $path; ?>" alt="Movie Picture"width="100" height="150" style = "position: relative; bottom: 15px">
-                        <?php } ?>
-                        
-                        <?php if (!isset($_SESSION['sess_movie_pic'])) 
-                        { ?>
-                        <img src="images\noImage.png" alt="Movie Picture"width="100" height="100" style = "position: relative; bottom: 15px">   
-                        <?php } ?>
-                   
-                    </div>
-                <input type = "submit" value = "Upload Image" name = "uploadMovieImgBtn" id = "uploadimgBtn">
-            </form>
             <form method="post">
                 <div class = "txt_field">
                     <input type = "text" name = "title" id = "title" required>
@@ -91,6 +71,16 @@ else
                     <label>Actor(s)</label>
                 </div>
                 <button type="submit" name = "submitBtn" id = "submitBtn" value = "signup">Sign Up</button>
+            </form>
+        </div>
+        <div class="center">
+            <h1>Remove Movie</h1>
+            <form method="post">
+                <div class = "txt_field">
+                    <input type = "text" name = "movie_id" id = "movie_id" required>
+                    <label>Movie ID</label>
+                </div>
+                <button type="submit" name = "submitMovTagsBtn" id = "submitMovTagsBtn" value = "Remove">Remove</button>
             </form>
         </div>
     </body>

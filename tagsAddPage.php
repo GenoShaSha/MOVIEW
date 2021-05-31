@@ -6,6 +6,7 @@ if ($_SESSION['sess_role'] == "admin")
     include 'classes\Admin.class.php';
     $admin = new Admin();
     $admin -> InsertTags();
+    $admin -> RemoveTags();
 }
 else if (isset($_SESSION['sess_role']))
 {
@@ -43,7 +44,6 @@ else
             <a href="tagList.php">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
-            <a href = "adminpage.php"> ADMIN PAGE </a>
             <a href = "movieList.php">MOVIE LIST</a>
             <a href = "userList.php">USER LIST</a>           
             <a href = "tagList.php">TAG LIST</a>            
@@ -66,7 +66,6 @@ else
                     <label>Tag ID</label>
                 </div>
                 <button type="submit" name = "submitRmvTagsBtn" id = "submitRmvTagsBtn" value = "Remove">Remove</button>
-            </form>
-        </div>
+        </form>
     </body>
 </html>

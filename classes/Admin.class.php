@@ -165,10 +165,27 @@ class Admin extends dbconnect
             try
             {
                 $tagID = trim($_POST['tag_id']);
-                $sql = "DELETE FROM `taginfo`WHERE `tagID` = :tagID";
+                $sql = "DELETE FROM `taginfo`WHERE `tagID` = $tagID";
                 $stmt = $this -> connect() -> prepare($sql);
-                $stmt -> execute([$tagID]);
-                header('location:tagsAddPage.php');
+                $stmt -> execute();
+            }
+            catch (PDOException $e)
+            {
+                echo $e ->GetMessage();
+            }
+        }
+    }
+    public function RemoveMovies()
+    {
+        if(isset($_POST['submitMovTagsBtn']))
+        {
+            try
+            {
+                $movID = trim($_POST['movie_id']);
+                $sql = "DELETE FROM `movieinfo`WHERE `movieID` = $movID";
+                $stmt = $this -> connect() -> prepare($sql);
+                $stmt -> execute();
+                header('location:movieAddPage.php');
             }
             catch (PDOException $e)
             {

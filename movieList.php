@@ -41,8 +41,7 @@ else
             <a href="tagList.php">TAGS</a>
             <a href="#">RECENT</a>
             <input type="text" placeholder="Search...">
-            <a href = "adminpage.php"> ADMIN PAGE </a>
-            <a href = "#">MOVIE LIST</a>
+            <a href = "movieList.php">MOVIE LIST</a>
             <a href = "userList.php">USER LIST</a>
             <a href = "tagList.php">TAG LIST</a>            
         </div>
