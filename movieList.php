@@ -43,7 +43,8 @@ else
             <input type="text" placeholder="Search...">
             <a href = "adminpage.php"> ADMIN PAGE </a>
             <a href = "#">MOVIE LIST</a>
-            <a href = "userList.php">USER LIST</a>           
+            <a href = "userList.php">USER LIST</a>
+            <a href = "tagList.php">TAG LIST</a>            
         </div>
         <div class = "center"> 
         <a href="movieAddpage.php">ADD MOVIE</a>
@@ -51,7 +52,7 @@ else
         if( $_SESSION['sess_role'] == "admin")
         {
             echo "<h1>Movie list</h1>";
-            $admin ->ShowMovies()
+            $admin ->ShowMovies();
         }
        ?>
        </div>

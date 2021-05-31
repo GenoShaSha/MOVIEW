@@ -61,6 +61,14 @@ div.movietags
     grid-template-rows: repeat(4, 1fr);
 }
 
+.center
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
 #movieimg
 {
     width: 400px;
